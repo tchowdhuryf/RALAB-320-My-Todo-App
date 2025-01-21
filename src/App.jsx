@@ -1,20 +1,22 @@
 import { useState } from "react";
 //components
 import CustomForm from "./components/CustomForm";
+import ItemList from "./components/ItemList";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [items, setItems] = useState([]);
 
   const addPackingItem = (packingItem) => {
-    console.log(packingItem);
-  }
+    setItems((previous) => [...previous, packingItem]);
+  };
 
   return (
     <div className="container">
       <header>
         <h1>My Packing List</h1>
       </header>
-      <CustomForm addPackingItem={addPackingItem}/>
+      <CustomForm addPackingItem={addPackingItem} />
+      {items && <ItemList items={items}/>}
     </div>
   );
 }
