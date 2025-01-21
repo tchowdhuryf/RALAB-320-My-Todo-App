@@ -2,12 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { PlusIcon } from "@heroicons/react/20/solid";
 
-function CustomForm() {
+function CustomForm({addPackingItem}) {
   const [todo, setTodo] = useState("");
 
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(input);
+    addPackingItem({
+      id: new Date().getTime(),
+      name: todo,
+      completed: false,
+    });
+    setTodo("");
   };
 
   return (
@@ -17,8 +22,8 @@ function CustomForm() {
           type="text"
           id="task"
           className="input"
-          //   value={todo}
-          //   onInput={(e) => setTodo(e.target.value)}
+          value={todo}
+          onInput={(e) => setTodo(e.target.value)}
           required
           autoFocus
           maxLength={50}
