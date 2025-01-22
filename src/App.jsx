@@ -11,8 +11,22 @@ function App() {
   };
 
   const deletePackingItem = (id) => {
-    setItems(previous => previous.filter(item => item.id !== id));
-  }
+    setItems((previous) => previous.filter((item) => item.id !== id));
+  };
+
+  const updateCompletedStatus = (id) => {
+    setItems((previous) =>
+      previous.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            completed: !item.completed,
+          };
+        }
+        return item;
+      })
+    );
+  };
 
   return (
     <div className="container">
@@ -20,7 +34,13 @@ function App() {
         <h1>My Packing List</h1>
       </header>
       <CustomForm addPackingItem={addPackingItem} />
-      {items && (<ItemList items={items} deletePackingItem={deletePackingItem}/>)}
+      {items && (
+        <ItemList
+          items={items}
+          deletePackingItem={deletePackingItem}
+          updateCompletedStatus={updateCompletedStatus}
+        />
+      )}
     </div>
   );
 }

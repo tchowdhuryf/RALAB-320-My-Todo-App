@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import styles from "./Item.module.css";
 import { CheckIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-const Item = ({ item, deletePackingItem }) => {
+const Item = ({ item, deletePackingItem, updateCompletedStatus}) => {
   const [isCompleted, setIsCompleted] = useState(item.completed);
 
   const handleComplete = (e) => {
     setIsCompleted(!isCompleted);
+    updateCompletedStatus(item.id);
   };
   return (
     <li className={styles.item}>
