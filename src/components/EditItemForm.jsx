@@ -11,7 +11,7 @@ function EditItemForm({ editItem, packingItem}) {
   };
 
   return (
-    <form className="todo" onSubmit={handleForm}>
+    <form className="item" onSubmit={handleForm}>
       <div>
         <input
           type="text"
