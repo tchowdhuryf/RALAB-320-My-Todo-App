@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Item.module.css";
 import { CheckIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-const Item = ({ item, deletePackingItem, updatePackedStatus}) => {
+const Item = ({ item, deletePackingItem, updatePackedStatus, onEdit}) => {
   const [isPacked, setIsPacked] = useState(item.packed);
 
   const handlePack = (e) => {
@@ -30,7 +30,7 @@ const Item = ({ item, deletePackingItem, updatePackedStatus}) => {
         <div className={styles["item-group"]}>
           <button
             className="btn"
-            onClick={() => editItem(item)}>
+            onClick={() => onEdit(item)}>
             <PencilSquareIcon width={24} height={24} />
           </button>
           <button

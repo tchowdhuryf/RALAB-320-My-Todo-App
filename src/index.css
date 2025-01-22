@@ -85,14 +85,6 @@ label {
   }
 }
 
-/* prefers reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    --_tspeed_slow: 50ms;
-    --_tspeed_fast: 50ms;
-  }
-}
-
 body {
   min-height: 100vh;
   display: grid;
@@ -167,7 +159,7 @@ hr {
     0 0 0 0.4em hsl(var(--accent) / 0.7);
 }
 
-.todo {
+.item {
   display: flex;
   gap: 0.5em;
   font-size: var(--_size);

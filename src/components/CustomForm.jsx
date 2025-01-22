@@ -16,7 +16,7 @@ function CustomForm({ addPackingItem }) {
   };
 
   return (
-    <form className="todo" onSubmit={handleForm}>
+    <form className="item" onSubmit={handleForm}>
       <div className="wrapper">
         <input
           type="text"
