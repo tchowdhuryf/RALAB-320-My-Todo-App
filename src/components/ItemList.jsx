@@ -4,7 +4,7 @@ import styles from './ItemList.module.css'
 
 function ItemList({items}) {
   return (
-    <ul className={styles.items}>
+    <ul className={styles.tasks}>
         {
             items.sort((a,b) => b.id - a.id).map((item) => (
                 <Item 

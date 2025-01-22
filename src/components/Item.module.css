@@ -10,9 +10,11 @@
 }
 
 .item-group {
+  width: 100%;
   display: flex;
+  justify-content: left;
   align-items: center;
-  --item-group-gap: 0.5em;
+  --taskgroup-gap: 0.5em;
   gap: var(--taskgroup-gap);
 }
 

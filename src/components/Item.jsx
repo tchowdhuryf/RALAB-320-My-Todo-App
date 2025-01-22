@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Item.module.css";
+import { CheckIcon } from "@heroicons/react/24/outline";
 
 const Item = ({ item }) => {
-  return (<li className={styles.item}>
-    <div className={styles["item-group"]}>
-    <input 
-    type="checkbox" 
-    />
-    {item.name}
-    </div>
-    </li> )
+
+    const [isCompleted, setIsCompleted] = useState(item.completed);
+
+    const handleComplete = (e) => {
+        setIsCompleted(!isCompleted);
+    }
+  return (
+    <li className={styles.item}>
+      <div className={styles["item-group"]}>
+        <input
+          type="checkbox"
+          className={styles.checkbox}
+          checked={isCompleted}
+          name={item.name}
+          id={item.id}
+          onChange={handleComplete}
+        />
+        <label htmlFor={item.id} className={styles.label}>
+          {item.name}
+          <p className={styles.checkmark}>
+            <CheckIcon strokeWidth={2} width={24} height={24}/>
+          </p>
+        </label>
+      </div>
+    </li>
+  );
 };
 
 export default Item;

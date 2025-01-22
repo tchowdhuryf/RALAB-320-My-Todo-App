@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { PlusIcon } from "@heroicons/react/20/solid";
+import { PlusIcon } from "@heroicons/react/24/solid";
 
 function CustomForm({ addPackingItem }) {
   const [item, setItem] = useState("");
