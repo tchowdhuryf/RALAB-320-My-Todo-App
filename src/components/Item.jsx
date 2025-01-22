@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import styles from "./Item.module.css";
 import { CheckIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-const Item = ({ item, deletePackingItem, updateCompletedStatus}) => {
-  const [isCompleted, setIsCompleted] = useState(item.completed);
+const Item = ({ item, deletePackingItem, updatePackedStatus}) => {
+  const [isPacked, setIsPacked] = useState(item.packed);
 
-  const handleComplete = (e) => {
-    setIsCompleted(!isCompleted);
-    updateCompletedStatus(item.id);
+  const handlePack = (e) => {
+    setIsPacked(!isPacked);
+    updatePackedStatus(item.id);
   };
   return (
     <li className={styles.item}>
@@ -15,10 +15,10 @@ const Item = ({ item, deletePackingItem, updateCompletedStatus}) => {
         <input
           type="checkbox"
           className={styles.checkbox}
-          checked={isCompleted}
+          checked={isPacked}
           name={item.name}
           id={item.id}
-          onChange={handleComplete}
+          onChange={handlePack}
         />
         <label htmlFor={item.id} className={styles.label}>
           {item.name}
@@ -30,7 +30,7 @@ const Item = ({ item, deletePackingItem, updateCompletedStatus}) => {
         <div className={styles["item-group"]}>
           <button
             className="btn"
-            onClick={() => enterEditMode(item)}>
+            onClick={() => editItem(item)}>
             <PencilSquareIcon width={24} height={24} />
           </button>
           <button

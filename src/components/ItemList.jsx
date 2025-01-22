@@ -2,7 +2,7 @@ import React from 'react'
 import Item from './Item'
 import styles from './ItemList.module.css'
 
-function ItemList({items , deletePackingItem, updateCompletedStatus}) {
+function ItemList({items , deletePackingItem, updatePackedStatus}) {
   return (
     <ul className={styles.tasks}>
         {
@@ -11,7 +11,7 @@ function ItemList({items , deletePackingItem, updateCompletedStatus}) {
                 key={item.id}
                 item={item}
                 deletePackingItem={deletePackingItem}
-                updateCompletedStatus={updateCompletedStatus}
+                updatePackedStatus={updatePackedStatus}
                 />
             ))
         }

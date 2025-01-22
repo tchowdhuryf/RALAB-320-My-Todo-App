@@ -10,7 +10,7 @@ function CustomForm({ addPackingItem }) {
     addPackingItem({
       id: new Date().getTime(),
       name: item,
-      completed: false,
+      packed: false,
     });
     setItem("");
   };

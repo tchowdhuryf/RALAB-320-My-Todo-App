@@ -14,7 +14,7 @@ function App() {
     setItems((previous) => previous.filter((item) => item.id !== id));
   };
 
-  const updateCompletedStatus = (id) => {
+  const updatePackedStatus = (id) => {
     setItems((previous) =>
       previous.map((item) => {
         if (item.id === id) {
@@ -38,7 +38,7 @@ function App() {
         <ItemList
           items={items}
           deletePackingItem={deletePackingItem}
-          updateCompletedStatus={updateCompletedStatus}
+          updatePackedStatus={updatePackedStatus}
         />
       )}
     </div>
