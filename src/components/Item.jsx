@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import styles from "./Item.module.css";
-import { CheckIcon } from "@heroicons/react/24/outline";
+import { CheckIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 
 const Item = ({ item }) => {
+  const [isCompleted, setIsCompleted] = useState(item.completed);
 
-    const [isCompleted, setIsCompleted] = useState(item.completed);
-
-    const handleComplete = (e) => {
-        setIsCompleted(!isCompleted);
-    }
+  const handleComplete = (e) => {
+    setIsCompleted(!isCompleted);
+  };
   return (
     <li className={styles.item}>
       <div className={styles["item-group"]}>
@@ -23,9 +22,23 @@ const Item = ({ item }) => {
         <label htmlFor={item.id} className={styles.label}>
           {item.name}
           <p className={styles.checkmark}>
-            <CheckIcon strokeWidth={2} width={24} height={24}/>
+            <CheckIcon strokeWidth={2} width={24} height={24} />
           </p>
         </label>
+
+        <div className={styles["item-group"]}>
+          <button
+            className="btn"
+            onClick={() => enterEditMode(item)}>
+            <PencilSquareIcon width={24} height={24} />
+          </button>
+          <button
+            className={`btn ${styles.delete}`}
+            onClick={() => deleteTask(item.id)}>
+            <TrashIcon width={24} height={24} />
+          </button>
+        </div>
+
       </div>
     </li>
   );

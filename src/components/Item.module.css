@@ -12,7 +12,7 @@
 .item-group {
   width: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: right;
   align-items: center;
   --taskgroup-gap: 0.5em;
   gap: var(--taskgroup-gap);
