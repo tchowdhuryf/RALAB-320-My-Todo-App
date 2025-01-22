@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Item.module.css";
 import { CheckIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-const Item = ({ item }) => {
+const Item = ({ item, deletePackingItem }) => {
   const [isCompleted, setIsCompleted] = useState(item.completed);
 
   const handleComplete = (e) => {
@@ -34,7 +34,7 @@ const Item = ({ item }) => {
           </button>
           <button
             className={`btn ${styles.delete}`}
-            onClick={() => deleteTask(item.id)}>
+            onClick={() => deletePackingItem(item.id)}>
             <TrashIcon width={24} height={24} />
           </button>
         </div>

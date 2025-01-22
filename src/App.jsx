@@ -10,13 +10,17 @@ function App() {
     setItems((previous) => [...previous, packingItem]);
   };
 
+  const deletePackingItem = (id) => {
+    setItems(previous => previous.filter(item => item.id !== id));
+  }
+
   return (
     <div className="container">
       <header>
         <h1>My Packing List</h1>
       </header>
       <CustomForm addPackingItem={addPackingItem} />
-      {items && <ItemList items={items}/>}
+      {items && (<ItemList items={items} deletePackingItem={deletePackingItem}/>)}
     </div>
   );
 }
